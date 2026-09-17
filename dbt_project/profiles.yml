@@ -1,0 +1,10 @@
+databricks_lakehouse:
+  target: dev
+  outputs:
+    dev:
+      type: databricks
+      schema: silver
+      host: "{{ env_var('DATABRICKS_HOST', 'adb-123.azuredatabricks.net') }}"
+      http_path: "{{ env_var('DATABRICKS_HTTP_PATH', '/sql/1.0/endpoints/123') }}"
+      token: "{{ env_var('DATABRICKS_TOKEN', 'token') }}"
+      threads: 4

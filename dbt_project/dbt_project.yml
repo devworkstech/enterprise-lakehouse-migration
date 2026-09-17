@@ -1,0 +1,14 @@
+name: 'enterprise_lakehouse_transforms'
+version: '1.0.0'
+config-version: 2
+profile: 'databricks_lakehouse'
+model-paths: ["models"]
+models:
+  enterprise_lakehouse_transforms:
+    staging:
+      +materialized: view
+      +schema: silver
+    marts:
+      +materialized: table
+      +schema: gold
+      +file_format: delta
